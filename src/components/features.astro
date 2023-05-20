@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Comparte tus experiencias",
+    description:
+      "Comparte tus experiencias de viaje a través de blogs, donde puedes incluir actividades, lugares de entretenimiento, restaurantes, y más.",
+    icon: "mdi:feather",
+  },
+  {
+    title: "Descubre nuevos destinos",
+    description:
+      "Planifica tu próximo viaje explorando los principales lugares de interés de tu destino.",
+    icon: "mdi:directions-fork",
+  },
+  {
+    title: "Conoce nuevas personas",
+    description:
+      "Conéctate con apasionados viajeros y conoce a personas que comparten tu amor por los viajes.",
+    icon: "mdi:account-group",
+  },
+];
+---
+
+<ContentSection title="Características" id="features">
+  <Fragment slot="lead">
+    JoinTravel es un blog de
+    <span class="text-primary">viajes</span>
+    en el que podrás apreciar los lugares
+    <span class="text-primary">turísticos</span>
+    con mejores lugares de ocio, miradores, museos, etc.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>

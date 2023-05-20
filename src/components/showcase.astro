@@ -1,0 +1,25 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from "~/components/showcase-card.astro";
+import { getShowcase } from "~/data/showcase";
+import { createSignal } from "solid-js";
+
+const sites = await getShowcase();
+const showLightbox = (true);
+---
+
+<ContentSection title="Imágenes" id="showcase">
+  <Fragment slot="lead">
+    Aquí encontrarás <span class="text-primary">capturas de pantalla</span>
+    que te mostrarán cómo es nuestro
+    <span class="text-primary">sitio</span>.
+  </Fragment>
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-2">
+      <img src="/src/data/showcase/images/astro-docs.png" alt="Descripción de la imagen" class="w-full"/>
+      <img src="/src/data/showcase/images/astro-docs.png" alt="Descripción de la imagen" class="w-full"/>
+      <img src="/src/data/showcase/images/astro-docs.png" alt="Descripción de la imagen" class="w-full"/>
+      <img src="/src/data/showcase/images/astro-docs.png" alt="Descripción de la imagen" class="w-full"/>
+    </div>
+  </div>
+</ContentSection>
